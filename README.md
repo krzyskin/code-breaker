@@ -1,1 +1,1 @@
-# words-game
+words-game
