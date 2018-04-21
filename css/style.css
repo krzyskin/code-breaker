@@ -97,7 +97,7 @@
     height: 25px;
 
 }
-.green, .white, .black{
+.green, .white{
     width:20px;
     height: 20px;
     border-radius:50%;
@@ -116,5 +116,5 @@
     background: white;
 }
 .black{
-    border-color: white;
+margin-left: -75px;
 }

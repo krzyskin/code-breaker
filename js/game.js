@@ -60,24 +60,26 @@ $(() => {
 
             let newWord = document.createElement("li");
             let array = [];
-            let black=pass.length -(red+white);
-            for (var i = 0; i < red; i++) {
-                let q = `<div class="green"></div>`;
-                array.push(q);
-            }
-            for (var i = 0; i < white; i++) {
-                let q = `<div class="white"></div>`;
-                array.push(q);
-            }
-            for (var i = 0; i < black; i++) {
-                let q = `<div class="black"></div>`;
-                array.push(q);
-            }
+            let black = pass.length -(red+white);
+            if(black==pass.length){
+                newWord.innerHTML = `<p class="word">${newValue.toUpperCase()}</p>
+                                <div class="dots"><div class="black">-------------------</div></div>`;
 
-            let arrayNew = array.join("");
-            newWord.innerHTML = `<p class="word">${newValue.toUpperCase()}</p>
+            }else {
+                for (var i = 0; i < red; i++) {
+                    let q = `<div class="green"></div>`;
+                    array.push(q);
+                }
+                for (var i = 0; i < white; i++) {
+                    let q = `<div class="white"></div>`;
+                    array.push(q);
+                }
+
+
+                let arrayNew = array.join("");
+                newWord.innerHTML = `<p class="word">${newValue.toUpperCase()}</p>
                                 <div class="dots">${arrayNew}</div>`;
-
+            }
             wordsList.prepend(newWord);
 
             $('#answer').val('');
