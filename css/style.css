@@ -81,10 +81,13 @@
 .answers li{
     height: 45px;
 }
-
+#inf{
+    font-family: 'Cuprum', sans-serif;
+}
 .word{
     font-size:30px;
     padding: 0 25px 0 25px;
+    font-family: 'Caveat', cursive;
    }
 .word, .dots{
     display:inline-block;
@@ -94,7 +97,7 @@
     height: 25px;
 
 }
-.green, .white{
+.green, .white, .black{
     width:20px;
     height: 20px;
     border-radius:50%;
@@ -111,5 +114,7 @@
      }
 .white{
     background: white;
-
+}
+.black{
+    border-color: white;
 }

@@ -1,35 +1,34 @@
 $(() => {
 
     $('.start').on('click', function () {
+
         this.parentElement.style.visibility = "hidden";
         this.parentElement.nextElementSibling.style.visibility = 'visible';
 
-        let header = function(){
+        let header = function () {
             let pass = $('#password').val();
             $('#inf').text("WPISZ WYRAZ Z " + pass.length + " LITER");
         }();
+
     });
 
-    $('.check').on('click', function () {
-        let newValue = $('#answer').val();
-        let pass = $('#password').val();
-        let valid = function(){
-            let alfabet = "aąbcćdeęfghijklłmnńoóprsśtuvxyzżź";
 
-        }();
+    $('.check').on('click', function () {
+        let pass = $('#password').val();
+        let newValue = $('#answer').val();
+
 
         if (newValue.length > pass.length) {
-            let tooLong = function(){
+            let tooLong = function () {
                 $('#inf').text("ZBYT DUŻO LITER! PODAJ WYRAZ Z " + pass.length + " LITER");
                 $('#answer').val('');
             }();
-        } else if(newValue.length < pass.length) {
-            let tooShort = function(){
+        } else if (newValue.length < pass.length) {
+            let tooShort = function () {
                 $('#inf').text("ZBYT MAŁO LITER! PODAJ WYRAZ Z " + pass.length + " LITER");
                 $('#answer').val('');
             }();
-        } else {console.log("ok");
-
+        } else {
             const wordsList = $('.answers');
             let red = 0;
             let white = 0;
@@ -61,12 +60,17 @@ $(() => {
 
             let newWord = document.createElement("li");
             let array = [];
+            let black=pass.length -(red+white);
             for (var i = 0; i < red; i++) {
                 let q = `<div class="green"></div>`;
                 array.push(q);
             }
             for (var i = 0; i < white; i++) {
                 let q = `<div class="white"></div>`;
+                array.push(q);
+            }
+            for (var i = 0; i < black; i++) {
+                let q = `<div class="black"></div>`;
                 array.push(q);
             }
 
@@ -78,9 +82,8 @@ $(() => {
 
             $('#answer').val('');
         }
-        function isInArray(va, ar) {
-            return ar.indexOf(va) > -1;
-        }
+
+
     });
 });
 
