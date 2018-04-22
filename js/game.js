@@ -1,5 +1,4 @@
 $(() => {
-
     $('.start').on('click', function () {
 
         this.parentElement.style.visibility = "hidden";
@@ -8,15 +7,16 @@ $(() => {
         let header = function () {
             let pass = $('#password').val();
             $('#inf').text("WPISZ WYRAZ Z " + pass.length + " LITER");
+            if (pass.length > 6) {
+                $('.word').style.paddingRight = "0";
+            }
         }();
-
     });
 
 
     $('.check').on('click', function () {
         let pass = $('#password').val();
         let newValue = $('#answer').val();
-
 
         if (newValue.length > pass.length) {
             let tooLong = function () {
@@ -31,7 +31,7 @@ $(() => {
         } else {
             const wordsList = $('.answers');
             let red = 0;
-            let white = 0;
+            //let white = 0;
             for (let i = 0; i < pass.length; i++) {
                 if (pass.indexOf(newValue[i]) > -1) {
                     if (pass[i] == newValue[i]) {
@@ -51,7 +51,7 @@ $(() => {
                 if (ok > 0) {
                     counter = counter + ok;
                 }
-                white = counter - red;
+                let white = counter - red;
             }
 
             for (var i = 0; i < uniqueLetters.length; i++) {
@@ -60,12 +60,12 @@ $(() => {
 
             let newWord = document.createElement("li");
             let array = [];
-            let black = pass.length -(red+white);
-            if(black==pass.length){
-                newWord.innerHTML = `<p class="word">${newValue.toUpperCase()}</p>
+            let black = pass.length - (red + white);
+            if (black == pass.length) {
+                newWord.innerHTML = `<div class="dots"><p class="word">${newValue.toUpperCase()}</p></div>
                                 <div class="dots"><div class="black">-------------------</div></div>`;
 
-            }else {
+            } else {
                 for (var i = 0; i < red; i++) {
                     let q = `<div class="green"></div>`;
                     array.push(q);
@@ -75,17 +75,13 @@ $(() => {
                     array.push(q);
                 }
 
-
                 let arrayNew = array.join("");
                 newWord.innerHTML = `<p class="word">${newValue.toUpperCase()}</p>
                                 <div class="dots">${arrayNew}</div>`;
             }
             wordsList.prepend(newWord);
-
             $('#answer').val('');
         }
-
-
     });
 });
 
