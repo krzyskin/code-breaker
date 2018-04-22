@@ -1,6 +1,51 @@
 $(() => {
-    $('.start').on('click', function () {
 
+
+    let valMin = 0;
+$('.up-min').on('click', function () {
+    valMin = valMin + 1;
+    $('.min-value').text(valMin);
+});
+
+let valSec = 0;
+$('.up-sec').on('click', function () {
+    valSec = valSec + 5;
+    console.log(valMin);
+    if (valSec === 60) {
+        valSec = 0;
+        valMin = valMin + 1;
+    }
+    $('.min-value').text(valMin);
+    $('.sec-value').text(valSec);
+});
+
+
+const timer = function(){
+    let count = valMin * 60 + valSec;
+    let counter = setInterval(timer, 1000);
+    function timer() {
+        count = count - 1;
+        if (count === -1) {
+            clearInterval(counter);
+            return;
+        }
+        if (count === 0) {
+            alert("asdfghjkl");
+        }
+        let seconds = count % 60;
+        let minutes = Math.floor(count / 60);
+
+        minutes %= 60;
+
+        let adsec = ("0" + seconds).slice(-2);
+        let admin = ("0" + minutes).slice(-2);
+
+        $(".inner-time").text(admin + " : " + adsec);
+
+    }
+};
+    $('.start').on('click', function () {
+        timer();
         this.parentElement.style.visibility = "hidden";
         this.parentElement.nextElementSibling.style.visibility = 'visible';
 
@@ -15,6 +60,7 @@ $(() => {
 
 
     $('.check').on('click', function () {
+
         let pass = $('#password').val();
         let newValue = $('#answer').val();
 

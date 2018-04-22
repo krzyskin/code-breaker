@@ -19,6 +19,7 @@
     margin-top:50px;
     padding:10px 0 10px 0;
     position:absolute;
+    display: block;
 }
 .description{
     padding:10px;
@@ -56,6 +57,7 @@
     width: 150px;
     font-size:18px;
 }
+
 .check{
     margin:10px 200px 0 205px;
     height:65px;
@@ -85,6 +87,7 @@
     padding:30px 0 10px 0;
     visibility: hidden;
     position: absolute;
+    display:block;
 
 
 }
@@ -135,4 +138,53 @@
 }
 .black{
     margin-left: -75px;
+}
+.timer{
+
+    /*background: url('http://panamontech.com/royal/images/timer-5.png')no-repeat center center;*/
+
+    font-size: 25px;
+
+}
+.inner-time{
+
+    font-weight: bold;
+    color: #212121;
+    width: 120px;
+    height: 20px;
+
+
+}
+.min, .sec{
+    border: 2px double red;
+    display:flex;
+    flex-direction: row;
+    width:150px;
+}
+.up-min, .up-sec, .down-min, .down-sec{
+    height:50px;
+    width:50px;
+    border-radius: 50%;
+    color: white;
+    cursor:pointer;
+}
+
+.up-min, .up-sec, .down-min, .down-sec, .min-value, .sec-value{
+    display:inline-block;
+    float:left;
+    font-size: 40px;
+
+}
+.up-min, .up-sec{
+    background: rgba(0, 128, 0, 0.82);
+
+}
+
+.down-min, .down-sec{
+    background: rgba(255, 0, 0, 0.77);
+}
+.min-value, .sec-value{
+    text-align: center;
+    width:60px;
+
 }
