@@ -31,7 +31,7 @@ $(() => {
         } else {
             const wordsList = $('.answers');
             let red = 0;
-            //let white = 0;
+            let white = 0;
             for (let i = 0; i < pass.length; i++) {
                 if (pass.indexOf(newValue[i]) > -1) {
                     if (pass[i] == newValue[i]) {
@@ -51,7 +51,7 @@ $(() => {
                 if (ok > 0) {
                     counter = counter + ok;
                 }
-                let white = counter - red;
+                white = counter - red;
             }
 
             for (var i = 0; i < uniqueLetters.length; i++) {
