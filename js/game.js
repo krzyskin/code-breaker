@@ -1,5 +1,9 @@
 $(() => {
 
+    $('.timer-btn').on('click', function(){
+        this.nextElementSibling.style.display = 'block';
+
+})
 
     let valMin = 0;
 $('.up-min').on('click', function () {

@@ -14,7 +14,8 @@
     <div class="game">
         <div class="password-box">
             <input type="text" id="password">
-            <div class="timer">
+            <button class="timer-btn">USTAW CZAS</button>
+            <div class="timer-set">
                 <div class="min">
                     <button class="down-min">-</button>
                     <span class="min-value">0</span>
@@ -37,13 +38,14 @@
         <div class="answer-box">
             <span id="inf"></span>
             <input type="text" id="answer">
-            <div id="timer" class="timer">
+            <div id="timer">
                 <span class="inner-time"></span>
             </div>
             <button type="button" class="btn check">CHECK</button>
+            <ul class="answers">
+            </ul>
         </div>
-        <ul class="answers">
-        </ul>
+
     </div>
 </div>
 </body>
