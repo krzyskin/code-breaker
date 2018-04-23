@@ -40,11 +40,10 @@
 .description span{
     margin-right:25px;
 }
-#password{
-    margin:10px 150px 0 155px;
+#password, #answer{
     height: 50px;
     border: 1px solid #4d4a70;
-    font-size:45px;
+    font-size:40px;
     width:300px;
 
 }
@@ -53,7 +52,6 @@
     font-family: 'Cuprum', sans-serif;
 }
 
-
 .start{
     margin: 50px 170px 0 165px;
     height:150px;
@@ -61,12 +59,6 @@
     font-size:18px;
 }
 
-#answer{
-    height: 30px;
-    border: 1px solid #4d4a70;
-    margin:30px 150px 0 155px;
-
-}
 .check{
     margin:10px 200px 0 205px;
     height:65px;
@@ -182,7 +174,6 @@
     font-size:20px;
 }
 .min, .sec{
-    border: 2px double red;
     display:flex;
     flex-direction: row;
     width:150px;
