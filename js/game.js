@@ -7,20 +7,47 @@ $(() => {
 
     let valMin = 0;
 $('.up-min').on('click', function () {
+    console.log('qwerty');
     valMin = valMin + 1;
     $('.min-value').text(valMin);
 });
 
+$('.down-min').on('click', function () {
+    console.log("ertyui");
+    if(valMin>0) {
+        valMin = valMin - 1;
+        $('.min-value').text(valMin);
+    }else{
+        $('.min-value').text(valMin);
+    }
+});
 let valSec = 0;
 $('.up-sec').on('click', function () {
     valSec = valSec + 5;
-    console.log(valMin);
+
     if (valSec === 60) {
         valSec = 0;
         valMin = valMin + 1;
     }
     $('.min-value').text(valMin);
     $('.sec-value').text(valSec);
+});
+
+$('.down-sec').on('click', function () {
+
+
+    if (valSec === 0 && valMin>0) {
+        valSec = 55;
+        valMin = valMin - 1;
+        $('.min-value').text(valMin);
+        $('.sec-value').text(valSec);
+    }else if(valSec===0 && valMin===0){
+        valSec=0;
+        $('.sec-value').text(valSec);
+    }else{
+        valSec=valSec - 5;
+        $('.sec-value').text(valSec);
+    }
 });
 
 
