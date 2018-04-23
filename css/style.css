@@ -1,3 +1,4 @@
+
 *{
     box-sizing: border-box;
 }
@@ -17,8 +18,9 @@
 }
 .password-box{
     margin-top:50px;
-    position:absolute;
-    display: block;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
 }
 .description{
     padding:10px;
@@ -33,14 +35,22 @@
 }
 .description p{
     margin-top:25px;
+
 }
 .description span{
     margin-right:25px;
 }
 #password{
     margin:10px 150px 0 155px;
-    height: 30px;
+    height: 50px;
     border: 1px solid #4d4a70;
+    font-size:45px;
+    width:300px;
+
+}
+.password-box>span{
+    margin-top:20px;
+    font-family: 'Cuprum', sans-serif;
 }
 
 
@@ -86,7 +96,10 @@
     padding:30px 0 10px 0;
     visibility: hidden;
     position: absolute;
-    display:block;
+    display:flex;
+    align-items: center;
+    flex-direction: column;
+    min-height: 500px;
 
 
 }
@@ -96,23 +109,26 @@
     list-style-type: none;
 }
 .answers li{
-    height: 45px;
+    height: 50px;
 }
 #inf{
     font-family: 'Cuprum', sans-serif;
 }
 .word{
     font-size:30px;
-    padding-right: 25px;
     font-family: 'Caveat', cursive;
-
    }
 .word, .dots{
-    display:inline-block;
+    float:left;
+    width:200px;
+    display:block;
+
+
 }
 .dots{
     width:200px;
     height: 25px;
+    flex-wrap: wrap;
 
 }
 .green, .white{
@@ -123,15 +139,18 @@
     justify-content: center;
     margin:5px 5px 0 5px;
     border: 2px solid black;
+    align-items: center;
 }
 
 .green{
     background: green;
     border: 3px solid #fff;
     border-radius: 100%;
+
      }
 .white{
     background: white;
+
 }
 .black{
     margin-left: -75px;
@@ -141,7 +160,15 @@
 }
 .timer-set{
     display:none;
-    margin-left:175px;
+    margin-top:20px;
+
+}
+.min-sec-set{
+    display:inline-block;
+}
+.min-sec-set>span{
+    margin-top:5px;
+    color:white;
 }
 .timer{
     font-size: 25px;
@@ -161,8 +188,8 @@
     width:150px;
 }
 .up-min, .up-sec, .down-min, .down-sec{
-    height:50px;
-    width:50px;
+    height:40px;
+    width:40px;
     border-radius: 50%;
     color: white;
     cursor:pointer;
@@ -171,7 +198,7 @@
 .up-min, .up-sec, .down-min, .down-sec, .min-value, .sec-value{
     display:inline-block;
     float:left;
-    font-size: 40px;
+    font-size: 32px;
 }
 .up-min, .up-sec{
     background: rgba(0, 128, 0, 0.82);

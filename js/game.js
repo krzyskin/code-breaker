@@ -1,9 +1,9 @@
 $(() => {
 
     $('.timer-btn').on('click', function(){
-        this.nextElementSibling.style.display = 'block';
 
-})
+        this.parentElement.nextElementSibling.style.display = 'block';
+        })
 
     let valMin = 0;
 $('.up-min').on('click', function () {
@@ -50,7 +50,8 @@ const timer = function(){
 };
     $('.start').on('click', function () {
         timer();
-        this.parentElement.style.visibility = "hidden";
+        this.parentElement.style.display = "none";
+        console.log( this.parentElement.nextElementSibling);
         this.parentElement.nextElementSibling.style.visibility = 'visible';
 
         let header = function () {
@@ -112,7 +113,7 @@ const timer = function(){
             let array = [];
             let black = pass.length - (red + white);
             if (black == pass.length) {
-                newWord.innerHTML = `<div class="dots"><p class="word">${newValue.toUpperCase()}</p></div>
+                newWord.innerHTML = `<div class="dots"><div class="word">${newValue.toUpperCase()}</div></div>
                                 <div class="dots"><div class="black">-------------------</div></div>`;
 
             } else {
@@ -126,7 +127,7 @@ const timer = function(){
                 }
 
                 let arrayNew = array.join("");
-                newWord.innerHTML = `<p class="word">${newValue.toUpperCase()}</p>
+                newWord.innerHTML = `<div class="word">${newValue.toUpperCase()}</div>
                                 <div class="dots">${arrayNew}</div>`;
             }
             wordsList.prepend(newWord);

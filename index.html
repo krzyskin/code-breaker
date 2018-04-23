@@ -14,20 +14,28 @@
     <div class="game">
         <div class="password-box">
             <input type="text" id="password">
-            <button class="timer-btn">USTAW CZAS</button>
+            <span>NACIŚNIJ<button class="timer-btn">USTAW CZAS</button>ABY USTALIC LIMIT CZASU!</span>
+
             <div class="timer-set">
-                <div class="min">
+                <div class="min-sec-set">
+                    <span>MINUTY</span>
+                    <div class="min">
                     <button class="down-min">-</button>
                     <span class="min-value">0</span>
                     <button class="up-min">+</button>
+                    </div>
                 </div>
-                <div class="sec">
+                <div class="min-sec-set">
+                    <span>SEKUNDY</span>
+                    <div class="sec">
                     <button class="down-sec">-</button>
                     <span class="sec-value">0</span>
                     <button class="up-sec">+</button>
+                    </div>
                 </div>
 
             </div>
+            <span>LUB GRAJ BEZ LIMITU CZASU</span>
             <button class="btn start">START!</button>
             <div class="description">Gra polega na odgadnięciu słowa uprzednio wpisnego przez pierwszego gracza. Słowo do odgadnięcia może mieć dowolną liczbę liter. Gracz zgadujący hasło otrzymuje informacje na temat tego, ile liter z podanego przez niego hasła ma swoje odpowiedniki w haśle podanym przez pierwszego gracza, podadana jest także informacja czy litery są na właściwym miejscu. Krótko mówiąc:
                 <div><div class="green"></div><p> jedna litera występuje i jest na właściwym miejscu</p></div>
