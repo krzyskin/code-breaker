@@ -214,3 +214,12 @@ margin-bottom: 5px;
     border-radius: 50%;
     height: 55px;
 }
+#restart{
+    position:absolute;
+    left:400px;
+    top:10px;
+    height: 57px;
+    width:57px;
+    border-radius: 50%;
+    font-family: 'Cuprum', sans-serif;
+}

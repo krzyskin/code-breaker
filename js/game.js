@@ -6,69 +6,69 @@ $(() => {
         })
 
     let valMin = 0;
-$('.up-min').on('click', function () {
+    $('.up-min').on('click', function () {
     valMin = valMin + 1;
     $('.min-value').text(valMin);
-});
+    });
 
-$('.down-min').on('click', function () {
-    if(valMin>0) {
-        valMin = valMin - 1;
+    $('.down-min').on('click', function () {
+        if(valMin>0) {
+            valMin = valMin - 1;
+            $('.min-value').text(valMin);
+        }else{
+            $('.min-value').text(valMin);
+        }
+    });
+    let valSec = 0;
+    $('.up-sec').on('click', function () {
+        valSec = valSec + 5;
+
+        if (valSec === 60) {
+            valSec = 0;
+            valMin = valMin + 1;
+        }
         $('.min-value').text(valMin);
-    }else{
-        $('.min-value').text(valMin);
-    }
-});
-let valSec = 0;
-$('.up-sec').on('click', function () {
-    valSec = valSec + 5;
+        $('.sec-value').text(valSec);
+    });
 
-    if (valSec === 60) {
-        valSec = 0;
-        valMin = valMin + 1;
-    }
-    $('.min-value').text(valMin);
-    $('.sec-value').text(valSec);
-});
-
-$('.down-sec').on('click', function () {
+    $('.down-sec').on('click', function () {
     
-    if (valSec === 0 && valMin>0) {
-        valSec = 55;
-        valMin = valMin - 1;
-        $('.min-value').text(valMin);
-        $('.sec-value').text(valSec);
-    }else if(valSec===0 && valMin===0){
-        valSec=0;
-        $('.sec-value').text(valSec);
-    }else{
-        valSec=valSec - 5;
-        $('.sec-value').text(valSec);
-    }
-});
-
-const time = function(){
-    let count = valMin * 60 + valSec;
-    let counter = setInterval(timer, 1000);
-    function timer() {
-        count = count - 1;
-        if (count === -1) {
-            clearInterval(counter);
-            return;
+        if (valSec === 0 && valMin>0) {
+            valSec = 55;
+            valMin = valMin - 1;
+            $('.min-value').text(valMin);
+            $('.sec-value').text(valSec);
+        }else if(valSec===0 && valMin===0){
+            valSec=0;
+            $('.sec-value').text(valSec);
+        }else{
+            valSec=valSec - 5;
+            $('.sec-value').text(valSec);
         }
-        if (count === 0) {
+    });
+
+    const time = function(){
+        let count = valMin * 60 + valSec;
+        let counter = setInterval(timer, 1000);
+        function timer() {
+            count = count - 1;
+            if (count === -1) {
+                clearInterval(counter);
+                return;
+            }
+            if (count === 0) {
+            }
+            let seconds = count % 60;
+            let minutes = Math.floor(count / 60);
+
+            minutes %= 60;
+
+            let adsec = ("0" + seconds).slice(-2);
+            let admin = ("0" + minutes).slice(-2);
+
+            $(".inner-time").text(admin + " : " + adsec);
         }
-        let seconds = count % 60;
-        let minutes = Math.floor(count / 60);
-
-        minutes %= 60;
-
-        let adsec = ("0" + seconds).slice(-2);
-        let admin = ("0" + minutes).slice(-2);
-
-        $(".inner-time").text(admin + " : " + adsec);
-    }
-};
+    };
     $('.start').on('click', function () {
         time();
         this.parentElement.style.display = "none";
@@ -83,7 +83,20 @@ const time = function(){
             }
         }();
     });
-    
+let restart = function() {
+    $('#answer').val('');
+    $('.answers').empty();
+    $('#password').val('');
+    $('.win').style.display = "none";
+    $('.answer-box').style.display = 'none';
+    $('.password-box').style.display = 'flex';
+};
+
+$('.restart').on('click',function(){
+    console.log("asdfghjk");
+    restart();
+});
+
     $('.check').on('click', function () {
 
         let pass = $('#password').val().toUpperCase();
@@ -160,9 +173,11 @@ const time = function(){
              this.nextElementSibling.firstElementChild.innerHTML = `GRATULACJE!!!<br> ODGADŁEŚ HASŁO W ${attempt.length} PRÓBIE`;
               
             }
-            $('#answer').val('');
-            $('.return').on('click',function(){
 
+            $('#answer').val('');
+
+            $('.return').on('click',function(){
+                $('#answer').val('');
                 $('.answers').empty();
                 $('#password').val('');
                 this.parentElement.style.display = "none";
