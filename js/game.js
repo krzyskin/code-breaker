@@ -161,6 +161,14 @@ const time = function(){
               
             }
             $('#answer').val('');
+            $('.return').on('click',function(){
+
+                $('.answers').empty();
+                $('#password').val('');
+                this.parentElement.style.display = "none";
+                this.parentElement.parentElement.style.display = 'none';
+                this.parentElement.parentElement.previousElementSibling.style.display = 'flex';
+            });
         }
     });
 });
