@@ -72,7 +72,6 @@ $(() => {
     $('.start').on('click', function () {
         time();
         this.parentElement.style.display = "none";
-        console.log( this.parentElement.nextElementSibling);
         this.parentElement.nextElementSibling.style.display = 'flex';
 
         let header = function () {
@@ -83,19 +82,15 @@ $(() => {
             }
         }();
     });
-let restart = function() {
-    $('#answer').val('');
-    $('.answers').empty();
-    $('#password').val('');
-    $('.win').style.display = "none";
-    $('.answer-box').style.display = 'none';
-    $('.password-box').style.display = 'flex';
-};
 
-$('.restart').on('click',function(){
-    console.log("asdfghjk");
-    restart();
-});
+    $('.restart').on('click',function() {
+        $('#answer').val('');
+        $('.answers').empty();
+        $('#password').val('');
+        this.parentElement.style.display = "none";
+        this.parentElement.style.display = 'none';
+        this.parentElement.previousElementSibling.style.display = 'flex';
+    });
 
     $('.check').on('click', function () {
 
