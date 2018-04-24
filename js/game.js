@@ -151,10 +151,13 @@ const time = function(){
                                 <div class="dots">${arrayNew}</div>`;
             }
             wordsList.prepend(newWord);
+            let attempt = $('.answers').find('li');
+
             if(green==pass.length){
               this.nextElementSibling.style.display = "flex";
-              this.nextElementSibling.style.transform = "rotate(900deg)";
-              this.nextElementSibling.style.transition = "3s";
+              console.log(this.nextElementSibling.firstElementChild)
+
+             this.nextElementSibling.firstElementChild.innerHTML = `GRATULACJE!!!<br> ODGADŁEŚ HASŁO W ${attempt.length} PRÓBIE`;
               
             }
             $('#answer').val('');
