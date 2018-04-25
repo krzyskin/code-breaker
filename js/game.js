@@ -3,8 +3,8 @@ $(() => {
     $('.timer-btn').on('click', function(){
 
         this.parentElement.nextElementSibling.style.display = 'block';
+    
         })
-
     let valMin = 0;
     $('.up-min').on('click', function () {
     valMin = valMin + 1;
@@ -32,7 +32,7 @@ $(() => {
     });
 
     $('.down-sec').on('click', function () {
-    
+
         if (valSec === 0 && valMin>0) {
             valSec = 55;
             valMin = valMin - 1;
@@ -50,37 +50,125 @@ $(() => {
     const time = function(){
         let count = valMin * 60 + valSec;
         let counter = setInterval(timer, 1000);
-        $('.restart').on('click',function() {
-            
-                count==0;
-            
-          /*  $('#answer').val('');
-            $('.answers').empty();
-            $('#password').val('');
-            this.parentElement.style.display = "none";
-            this.parentElement.style.display = 'none';
-            this.parentElement.previousElementSibling.style.display = 'flex';*/
 
-        });
 
         function timer() {
             count = count - 1;
             if (count === -1) {
                 clearInterval(counter);
-                console.log($('.win'));
-                document.querySelector('.win').style.display = 'flex';
-                $('.return').on('click',function(){
+                document.querySelector('.win').style.display = "flex";
+                $('.return').on('click',function() {
                     $('#answer').val('');
                     $('.answers').empty();
                     $('#password').val('');
                     this.parentElement.style.display = "none";
                     this.parentElement.parentElement.style.display = 'none';
                     this.parentElement.parentElement.previousElementSibling.style.display = 'flex';
+                    clearInterval(counter);
                 });
                 return;
             }
-            if (count === 0) {
+            else if(count >= 0){
+                
+                $('.restart').on('click',function() {
+                    $('#answer').val('');
+                    $('.answers').empty();
+                    $('#password').val('');
+                    //this.parentElement.style.display = "none";
+                    this.parentElement.style.display = 'none';
+                    this.parentElement.previousElementSibling.style.display = 'flex';
+                    clearInterval(counter);
+                });
+                $('.check').on('click', function () {
 
+                    let pass = $('#password').val().toUpperCase();
+                    let newValue = $('#answer').val().toUpperCase();
+
+                    if (newValue.length > pass.length) {
+                        let tooLong = function () {
+                            $('#inf').text("ZBYT DUŻO LITER! PODAJ WYRAZ Z " + pass.length + " LITER");
+                            $('#answer').val('');
+                        }();
+                    } else if (newValue.length < pass.length) {
+                        let tooShort = function () {
+                            $('#inf').text("ZBYT MAŁO LITER! PODAJ WYRAZ Z " + pass.length + " LITER");
+                            $('#answer').val('');
+                        }();
+                    } else {
+                        const wordsList = $('.answers');
+                        let green = 0;
+                        let white = 0;
+                        for (let i = 0; i < pass.length; i++) {
+                            if (pass.indexOf(newValue[i]) > -1) {
+                                if (pass[i] == newValue[i]) {
+                                    green = green + 1;
+                                }
+                            }
+                        }
+                        let uniqueLetters = [];
+                        $.each([...newValue], function (i, el) {
+                            if ($.inArray(el, uniqueLetters) === -1) uniqueLetters.push(el);
+                            return uniqueLetters;
+                        });
+                        let number = 0;
+
+                        function countInArray(pass, value) {
+                            let ok = [...pass].reduce((n, x) => n + (x === value), 0);
+                            if (ok > 0) {
+                                number = number + ok;
+                            }
+                            white = number - green;
+                        }
+
+                        for (var i = 0; i < uniqueLetters.length; i++) {
+                            countInArray(pass, uniqueLetters[i]);
+                        }
+
+                        let newWord = document.createElement("li");
+                        let array = [];
+                        let black = pass.length - (green + white);
+                        if (black == pass.length) {
+                            newWord.innerHTML = `<div class="word">${newValue.toUpperCase()}</div>
+                                <div class="dots"><div class="black">-------------------</div></div>`;
+
+                        } else {
+                            for (var i = 0; i < green; i++) {
+                                let q = `<div class="green"></div>`;
+                                array.push(q);
+                            }
+                            for (var i = 0; i < white; i++) {
+                                let q = `<div class="white"></div>`;
+                                array.push(q);
+                            }
+
+                            let arrayNew = array.join("");
+                            newWord.innerHTML = `<div class="word">${newValue.toUpperCase()}</div>
+                                <div class="dots">${arrayNew}</div>`;
+                        }
+                        wordsList.prepend(newWord);
+                        let attempt = $('.answers').find('li');
+
+                        if(green==pass.length){
+                            this.nextElementSibling.style.display = "flex";
+                            console.log(this.nextElementSibling.firstElementChild)
+
+                            this.nextElementSibling.firstElementChild.innerHTML = `GRATULACJE!!!<br> ODGADŁEŚ HASŁO W ${attempt.length} PRÓBIE`;
+                            $('.return').on('click',function() {
+                                $('#answer').val('');
+                                $('.answers').empty();
+                                $('#password').val('');
+                                this.parentElement.style.display = "none";
+                                this.parentElement.parentElement.style.display = 'none';
+                                this.parentElement.parentElement.previousElementSibling.style.display = 'flex';
+                                clearInterval(counter);
+                            });
+                        }
+
+                        $('#answer').val('');
+
+
+                    }
+                });
             }
             let seconds = count % 60;
             let minutes = Math.floor(count / 60);
@@ -93,8 +181,10 @@ $(() => {
             $(".inner-time").text(admin + " : " + adsec);
         }
     };
+
     $('.start').on('click', function () {
         time();
+
         this.parentElement.style.display = "none";
         this.parentElement.nextElementSibling.style.display = 'flex';
 
@@ -107,97 +197,6 @@ $(() => {
         }();
     });
 
-    $('.restart').on('click',function() {
-        $('#answer').val('');
-        $('.answers').empty();
-        $('#password').val('');
-        this.parentElement.style.display = "none";
-        this.parentElement.style.display = 'none';
-        this.parentElement.previousElementSibling.style.display = 'flex';
-        clearInterval(counter);
-    });
 
-    $('.check').on('click', function () {
-
-        let pass = $('#password').val().toUpperCase();
-        let newValue = $('#answer').val().toUpperCase();
-
-        if (newValue.length > pass.length) {
-            let tooLong = function () {
-                $('#inf').text("ZBYT DUŻO LITER! PODAJ WYRAZ Z " + pass.length + " LITER");
-                $('#answer').val('');
-            }();
-        } else if (newValue.length < pass.length) {
-            let tooShort = function () {
-                $('#inf').text("ZBYT MAŁO LITER! PODAJ WYRAZ Z " + pass.length + " LITER");
-                $('#answer').val('');
-            }();
-        } else {
-            const wordsList = $('.answers');
-            let green = 0;
-            let white = 0;
-            for (let i = 0; i < pass.length; i++) {
-                if (pass.indexOf(newValue[i]) > -1) {
-                    if (pass[i] == newValue[i]) {
-                        green = green + 1;
-                    }
-                }
-            }
-            let uniqueLetters = [];
-            $.each([...newValue], function (i, el) {
-                if ($.inArray(el, uniqueLetters) === -1) uniqueLetters.push(el);
-                return uniqueLetters;
-            });
-            let number = 0;
-
-            function countInArray(pass, value) {
-                let ok = [...pass].reduce((n, x) => n + (x === value), 0);
-                if (ok > 0) {
-                    number = number + ok;
-                }
-                white = number - green;
-            }
-
-            for (var i = 0; i < uniqueLetters.length; i++) {
-                countInArray(pass, uniqueLetters[i]);
-            }
-
-            let newWord = document.createElement("li");
-            let array = [];
-            let black = pass.length - (green + white);
-            if (black == pass.length) {
-                newWord.innerHTML = `<div class="word">${newValue.toUpperCase()}</div>
-                                <div class="dots"><div class="black">-------------------</div></div>`;
-
-            } else {
-                for (var i = 0; i < green; i++) {
-                    let q = `<div class="green"></div>`;
-                    array.push(q);
-                }
-                for (var i = 0; i < white; i++) {
-                    let q = `<div class="white"></div>`;
-                    array.push(q);
-                }
-
-                let arrayNew = array.join("");
-                newWord.innerHTML = `<div class="word">${newValue.toUpperCase()}</div>
-                                <div class="dots">${arrayNew}</div>`;
-            }
-            wordsList.prepend(newWord);
-            let attempt = $('.answers').find('li');
-
-            if(green==pass.length){
-              this.nextElementSibling.style.display = "flex";
-              console.log(this.nextElementSibling.firstElementChild)
-
-             this.nextElementSibling.firstElementChild.innerHTML = `GRATULACJE!!!<br> ODGADŁEŚ HASŁO W ${attempt.length} PRÓBIE`;
-              
-            }
-
-            $('#answer').val('');
-
-
-        }
-    });
 });
 
