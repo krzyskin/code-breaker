@@ -50,13 +50,37 @@ $(() => {
     const time = function(){
         let count = valMin * 60 + valSec;
         let counter = setInterval(timer, 1000);
+        $('.restart').on('click',function() {
+            
+                count==0;
+            
+          /*  $('#answer').val('');
+            $('.answers').empty();
+            $('#password').val('');
+            this.parentElement.style.display = "none";
+            this.parentElement.style.display = 'none';
+            this.parentElement.previousElementSibling.style.display = 'flex';*/
+
+        });
+
         function timer() {
             count = count - 1;
             if (count === -1) {
                 clearInterval(counter);
+                console.log($('.win'));
+                document.querySelector('.win').style.display = 'flex';
+                $('.return').on('click',function(){
+                    $('#answer').val('');
+                    $('.answers').empty();
+                    $('#password').val('');
+                    this.parentElement.style.display = "none";
+                    this.parentElement.parentElement.style.display = 'none';
+                    this.parentElement.parentElement.previousElementSibling.style.display = 'flex';
+                });
                 return;
             }
             if (count === 0) {
+
             }
             let seconds = count % 60;
             let minutes = Math.floor(count / 60);
@@ -90,6 +114,7 @@ $(() => {
         this.parentElement.style.display = "none";
         this.parentElement.style.display = 'none';
         this.parentElement.previousElementSibling.style.display = 'flex';
+        clearInterval(counter);
     });
 
     $('.check').on('click', function () {
@@ -123,14 +148,14 @@ $(() => {
                 if ($.inArray(el, uniqueLetters) === -1) uniqueLetters.push(el);
                 return uniqueLetters;
             });
-            let counter = 0;
+            let number = 0;
 
             function countInArray(pass, value) {
                 let ok = [...pass].reduce((n, x) => n + (x === value), 0);
                 if (ok > 0) {
-                    counter = counter + ok;
+                    number = number + ok;
                 }
-                white = counter - green;
+                white = number - green;
             }
 
             for (var i = 0; i < uniqueLetters.length; i++) {
@@ -171,14 +196,7 @@ $(() => {
 
             $('#answer').val('');
 
-            $('.return').on('click',function(){
-                $('#answer').val('');
-                $('.answers').empty();
-                $('#password').val('');
-                this.parentElement.style.display = "none";
-                this.parentElement.parentElement.style.display = 'none';
-                this.parentElement.parentElement.previousElementSibling.style.display = 'flex';
-            });
+
         }
     });
 });
