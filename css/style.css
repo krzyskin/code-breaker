@@ -60,6 +60,7 @@
     font-size:25px;
     border:10px solid white;
     transition: 0.2s;
+    margin-top:10px;
 }
 .start:hover{
     background:darkred;
@@ -163,7 +164,7 @@
 }
 .min-sec-set>span{
     margin-top:5px;
-    color:white;
+    font-family: 'Cuprum', sans-serif;
 }
 .timer{
     font-size: 25px;
