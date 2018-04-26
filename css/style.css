@@ -8,12 +8,12 @@
 
 }
 .game{
-    background: rgba(51, 124, 168, 0.65);
+    background: rgba(67, 255, 206, 0.54);
     width: 500px;
     min-height: 700px;
     text-align: center;
     margin:50px;
-    border:2px solid #4d4a70;
+    border:2px solid rgba(67, 65, 98, 0.32);
     border-radius: 10px;
     display:flex;
     justify-content: center;
@@ -52,31 +52,38 @@
 .password-box>span{
     margin-top:20px;
     font-family: 'Cuprum', sans-serif;
+
 }
-.start{
+.btn.start{
     height:150px;
     width: 150px;
-    font-size:18px;
-    border:10px solid pink;
+    font-size:25px;
+    border:10px solid white;
+    transition: 0.2s;
 }
 .start:hover{
     background:darkred;
     border:2px solid #8b0740;
-    font-size:30px;
+    font-size:35px;
 }
-.check{
-    height:70px;
-    width: 70px;
-    border:6px solid #fff69a;
+
+.btn.check{
+    height:72px;
+    width: 72px;
     margin:10px 0 10px 0;
-}
-.check:hover{
-    background: #1d8b19;
-}
-.btn{
-    border-radius: 50%;
     color:white;
-    background: #8b167f;
+    font-size:15px;
+    border:3px solid white;
+    background:darkred;
+    transition:0.4s;
+    font-weight:700;
+}
+
+.btn{
+    background: green;
+    border: 3px solid #fff;
+    border-radius: 100%;
+    color:white;
     font-family: 'Cuprum', sans-serif;
 }
 .answer-box{
@@ -92,7 +99,7 @@
     min-height: 400px;
 }
 .answers li{
-margin-bottom: 5px;
+    margin-bottom: 5px;
     height: 50px;
 }
 #inf{
@@ -107,7 +114,6 @@ margin-bottom: 5px;
     float:left;
     width:200px;
     display:inline-block;
-    border:1px solid red;
 }
 .dots{
     width:200px;
@@ -138,7 +144,15 @@ margin-bottom: 5px;
 .timer-btn{
     width:32px;
     height:32px;
-    border-radius: 50%;
+    border-radius: 100%;
+    border: 2px solid black;
+    background:white;
+}
+.timer-btn:hover, .return:hover, .check:hover{
+    border: 3px solid white;
+    background: green;
+    transition:0.2s;
+    color: white;
 }
 .timer-set{
     display:none;
@@ -173,6 +187,7 @@ margin-bottom: 5px;
     border-radius: 50%;
     color: white;
     cursor:pointer;
+    border: 2px solid white;
 }
 .up-min, .up-sec, .down-min, .down-sec, .min-value, .sec-value{
     display:inline-block;
@@ -208,18 +223,30 @@ margin-bottom: 5px;
     margin-bottom: 10px;
 }
 
+
 .return{
     width:55px;
-    background: #a39fd2;
-    border-radius: 50%;
     height: 55px;
+    border-radius: 100%;
+    font-family: 'Cuprum', sans-serif;
+    color:black;
+    background: white;
+    border:2px solid black;
 }
+
+
 .restart{
     position:absolute;
     left:400px;
     top:10px;
-    height: 57px;
-    width:57px;
-    border-radius: 50%;
+    height: 58px;
+    width:58px;
+    border-radius: 100%;
     font-family: 'Cuprum', sans-serif;
+}
+.restart:hover{
+    border:2px solid #8b0740;
+    background:darkred;
+    transition:0.4s;
+    font-weight:700;
 }

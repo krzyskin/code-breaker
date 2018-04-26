@@ -77,10 +77,11 @@ $(() => {
                     $('#answer').val('');
                     $('.answers').empty();
                     $('#password').val('');
-                    //this.parentElement.style.display = "none";
+
                     this.parentElement.style.display = 'none';
                     this.parentElement.previousElementSibling.style.display = 'flex';
                     clearInterval(counter);
+
                 });
                 $('.check').on('click', function () {
 
@@ -208,10 +209,8 @@ $(() => {
                 $('#answer').val('');
                 $('.answers').empty();
                 $('#password').val('');
-                //this.parentElement.style.display = "none";
                 this.parentElement.style.display = 'none';
                 this.parentElement.previousElementSibling.style.display = 'flex';
-                clearInterval(counter);
             });
             $('.check').on('click', function () {
 
@@ -294,7 +293,6 @@ $(() => {
                             this.parentElement.style.display = "none";
                             this.parentElement.parentElement.style.display = 'none';
                             this.parentElement.parentElement.previousElementSibling.style.display = 'flex';
-                            clearInterval(counter);
                         });
                     }
 
