@@ -198,6 +198,12 @@
 .up-min, .up-sec{
     background: rgba(0, 128, 0, 0.82);
 }
+.up-min:active, .up-sec:active{
+    border-color:rgba(0, 128, 0, 0.82);
+}
+.down-min:active, .down-sec:active{
+    border-color:rgba(255, 0, 0, 0.77);
+}
 .down-min, .down-sec{
     background: rgba(255, 0, 0, 0.77);
 }
