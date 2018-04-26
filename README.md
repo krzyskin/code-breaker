@@ -1,1 +1,1 @@
-words-game
+The goal of the game is to guess the password entered by another player. The game has the option of setting the time the player has to guess the password. The game can be further developed with the option of a single player game - in that case the words will be introduced by drawing from the database of words.
