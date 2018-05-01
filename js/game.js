@@ -1,9 +1,7 @@
 $(() => {
 
     $('.timer-btn').on('click', function () {
-
-    this.parentElement.nextElementSibling.style.display = 'block';
-
+        this.parentElement.nextElementSibling.style.display = 'block';
     })
     let valMin = 0;
     $('.up-min').on('click', function () {
@@ -12,12 +10,12 @@ $(() => {
     });
 
     $('.down-min').on('click', function () {
-     if (valMin > 0) {
-         valMin = valMin - 1;
+        if (valMin > 0) {
+            valMin = valMin - 1;
+            $('.min-value').text(valMin);
+        } else {
          $('.min-value').text(valMin);
-     } else {
-         $('.min-value').text(valMin);
-     }
+        }
     });
     let valSec = 0;
     $('.up-sec').on('click', function () {
@@ -47,7 +45,7 @@ $(() => {
         }
     });
 //////////////////////// end timer adjust ////////////////////////////////
-    const time = function () {
+    const game = function () {
         let count = valMin * 60 + valSec;
         let counter = setInterval(timer, 1000);
 
@@ -68,8 +66,12 @@ $(() => {
                     this.parentElement.parentElement.style.display = 'none';
                     this.parentElement.parentElement.previousElementSibling.style.display = 'flex';
                     clearInterval(counter);
+                    valSec=0;
+                    valMin=0;
+                    $('.sec-value').text(valSec);
+                    $('.min-value').text(valMin);
                 });
-                return;
+
             }
             else if (count >= 0) {
 
@@ -77,14 +79,17 @@ $(() => {
                     $('#answer').val('');
                     $('.answers').empty();
                     $('#password').val('');
-
                     this.parentElement.style.display = 'none';
                     this.parentElement.previousElementSibling.style.display = 'flex';
                     clearInterval(counter);
-
+                    valSec=0;
+                    valMin=0;
+                    $('.sec-value').text(valSec);
+                    $('.min-value').text(valMin);
                 });
-                $('.check').on('click', function () {
 
+                $('.check').on('click', function () {
+                    $('#inf').text("WPISZ WYRAZ Z " + pass.length + " LITER");
                     let pass = $('#password').val().toUpperCase();
                     let newValue = $('#answer').val().toUpperCase();
 
@@ -165,11 +170,15 @@ $(() => {
                                 this.parentElement.parentElement.style.display = 'none';
                                 this.parentElement.parentElement.previousElementSibling.style.display = 'flex';
                                 clearInterval(counter);
+                                valSec=0;
+                                valMin=0;
+                                $('.sec-value').text(valSec);
+                                $('.min-value').text(valMin);
+
                             });
                         }
 
                         $('#answer').val('');
-
 
                     }
                 });
@@ -187,24 +196,22 @@ $(() => {
     };
 
     $('.start').on('click', function () {
-        let pass = $('#password').val();
 
+        if(valMin==0 && valSec == 0){
+            this.parentElement.nextElementSibling.children[3].style.display = "none";
+        }else{
+            this.parentElement.nextElementSibling.children[3].style.display = "block";
+        }
+        let pass = $('#password').val();
+        $('#inf').text("WPISZ WYRAZ Z " + pass.length + " LITER");
         if (pass.length !== 0) {
 
             this.parentElement.style.display = "none";
             this.parentElement.nextElementSibling.style.display = 'flex';
 
-            let header = function () {
-                let pass = $('#password').val();
-                $('#inf').text("WPISZ WYRAZ Z " + pass.length + " LITER");
-                if (pass.length > 6) {
-                    $('.word').style.paddingRight = "0";
-                }
-            }();
             let count = valMin * 60 + valSec;
             if (count > 0) {
-                console.log(count);
-                time();
+                game();
             }
             else {
                 $('.restart').on('click', function () {
@@ -213,10 +220,13 @@ $(() => {
                     $('#password').val('');
                     this.parentElement.style.display = 'none';
                     this.parentElement.previousElementSibling.style.display = 'flex';
+                    valSec=0;
+                    valMin=0;
+                    $('.sec-value').text(valSec);
+                    $('.min-value').text(valMin);
                 });
                 $('.check').on('click', function () {
-
-                    let pass = $('#password').val().toUpperCase();
+                    $('#inf').text("WPISZ WYRAZ Z " + pass.length + " LITER");
                     let newValue = $('#answer').val().toUpperCase();
 
                     if (newValue.length > pass.length) {
