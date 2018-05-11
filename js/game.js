@@ -170,7 +170,7 @@ const game = function() {
             $('#inf').text("WPISZ WYRAZ Z " + pass.length + " LITER");
             this.parentElement.style.display = "none";
 
-            this.parentElement.nextElementSibling.style.display = "flex";
+            this.parentElement.nextElementSibling.style.display = "block";
 
             //this.parentElement.parentElement.style.display = "none";
             //this.parentElement.parentElement.nextElementSibling.style.display = 'flex';
