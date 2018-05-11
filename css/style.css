@@ -54,7 +54,7 @@
     width:300px;
 }
 
-.password-box>span{
+span{
     margin-top:20px;
     font-family: 'Cuprum', sans-serif;
 
@@ -238,7 +238,7 @@
     width:60px;
 }
 .win{
-    height: 150px;
+    height: 180px;
     width: 300px;
     background: rgb(86, 177, 184);
     display:none;

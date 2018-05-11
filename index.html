@@ -15,18 +15,18 @@
 <div class="container">
     <div class="game">
         <div class="password-box">
-            <div class="description">Gra polega na odgadnięciu hasła uprzednio wpisnego przez pierwszego gracza. Hasło do odgadnięcia może mieć dowolną liczbę liter. Gracz zgadujący hasło otrzymuje informacje na temat tego, ile liter z podanego przez niego wyrazu ma swoje odpowiedniki w haśle podanym przez pierwszego gracza oraz ile z nich jest na właściwym miejscu. Reasumując:
-                <div><div class="green"></div><p> jedna litera występuje i jest na właściwym miejscu</p></div>
-                <div><div class="white"></div><p> jedna litera występuje, ale jest na niewłaściwym miejscu</p></div>
-                <div><p><span>------------</span>żadna z liter w podanym wyrazie nie wystepuje w haśle do odgadnięcia</p></div>
+            <div class="description">The goal of the  game is to guess the password entered by the first player. The password may have any number of letters. Second player receives information whether the word  entered matches  the password. Information are displayed in the way shown below.
+                <div><div class="green"></div><p> one letter appears in the password and is in the right place</p></div>
+                <div><div class="white"></div><p> one letter appears in the password but is in the wrong place</p></div>
+                <div><p><span>------------</span> none of the letters appears in the password to guess</p></div>
             </div>
             <div class="start-box">
-                <input type="text" id="password">
-                <span>NACIŚNIJ  <button class="timer-btn"><i class="far fa-clock"></i></button>  ABY USTALIĆ LIMIT CZASU!</span>
+                <input type="text" id="password" placeholder=" password...">
+                <span>PRESS  <button class="timer-btn"><i class="far fa-clock"></i></button>  TO SET THE TIME LIMIT!</span>
 
                 <div class="timer-set">
                     <div class="min-sec-set">
-                        <span>MINUTY</span>
+                        <span>MINUTES</span>
                         <div class="min">
                             <button class="down-min">-</button>
                             <span class="min-value">0</span>
@@ -34,7 +34,7 @@
                         </div>
                     </div>
                     <div class="min-sec-set">
-                        <span>SEKUNDY</span>
+                        <span>SECONDS</span>
                         <div class="sec">
                             <button class="down-sec">-</button>
                             <span class="sec-value">0</span>
@@ -43,7 +43,7 @@
                     </div>
 
                 </div>
-                <span>LUB GRAJ BEZ LIMITU CZASU</span>
+                <span>OR PLAY WITHOUT TIME LIMIT!</span>
                 <button class="btn start">START!</button>
 
             </div>
@@ -52,17 +52,17 @@
         </div>
         <div class="answer-box">
             <span id="inf"></span>
-            <input type="text" id="answer">
+            <input type="text" id="answer" placeholder="  answer...">
 
             <div class="timer">
                 <span class="inner-time"></span>
             </div>
 
-            <button type="button" class="btn check">SPRAWDŹ</button>
+            <button type="button" class="btn check">CHECK</button>
 
             <div class="win">
                 <span></span>
-                <button class="btn return" onClick="window.location.reload()">NOWA GRA</button>
+                <button class="btn return" onClick="window.location.reload()">NEW GAME</button>
             </div>
             <ul class="answers">
             </ul>

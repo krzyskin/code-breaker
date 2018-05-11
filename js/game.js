@@ -1,18 +1,25 @@
 $(() => {
-    if (window.matchMedia("(max-width: 767px)").matches) {
-    console.log("komórka");
-    document.querySelector(".game").style.display= "block";
-    document.querySelector(".password-box").style.width= "100%";
-    document.querySelector(".answer-box").style.width= "100%";
-}
+    window.addEventListener("resize", function () {
+    if (window.innerWidth < 767) {
+        document.querySelector(".game").style.display = "block";
+        document.querySelector(".password-box").style.width = "100%";
+        document.querySelector(".answer-box").style.width = "100%";
+        document.querySelector(".win").style.top = "400px";
 
+    }else{
+        document.querySelector(".game").style.display = "flex";
+        document.querySelector(".password-box").style.width = "50%";
+        document.querySelector(".answer-box").style.width = "50%";
+        document.querySelector(".win").style.top = "50px";
+    }
+});
     $('.timer-btn').on('click', function () {
         this.parentElement.nextElementSibling.style.display = 'block';
     })
     let valMin = 0;
     $('.up-min').on('click', function () {
-       valMin = valMin + 1;
-       $('.min-value').text(valMin);
+        valMin = valMin + 1;
+        $('.min-value').text(valMin);
     });
 
     $('.down-min').on('click', function () {
@@ -20,7 +27,7 @@ $(() => {
             valMin = valMin - 1;
             $('.min-value').text(valMin);
         } else {
-         $('.min-value').text(valMin);
+            $('.min-value').text(valMin);
         }
     });
     let valSec = 0;
@@ -28,8 +35,8 @@ $(() => {
         valSec = valSec + 5;
 
         if (valSec === 60) {
-        valSec = 0;
-        valMin = valMin + 1;
+            valSec = 0;
+            valMin = valMin + 1;
         }
         $('.min-value').text(valMin);
         $('.sec-value').text(valSec);
@@ -37,7 +44,7 @@ $(() => {
 
     $('.down-sec').on('click', function () {
 
-     if (valSec === 0 && valMin > 0) {
+        if (valSec === 0 && valMin > 0) {
             valSec = 55;
             valMin = valMin - 1;
             $('.min-value').text(valMin);
@@ -51,89 +58,95 @@ $(() => {
         }
     });
 //////////////////////// end timer adjust ////////////////////////////////
-const game = function() {
-    $('.check').on('click', function () {
-        let pass = $('#password').val().toUpperCase();
-        $('#inf').text("WPISZ WYRAZ Z " + pass.length + " LITER");
-        let newValue = $('#answer').val().toUpperCase();
+    const game = function () {
+        $('.check').on('click', function () {
+            let pass = $('#password').val().toUpperCase();
+            $('#inf').text("WPISZ WYRAZ Z " + pass.length + " LITER");
+            let newValue = $('#answer').val().toUpperCase();
 
-        if (newValue.length > pass.length) {
-            let tooLong = function () {
-                $('#inf').text("ZBYT DUŻO LITER! PODAJ WYRAZ Z " + pass.length + " LITER");
-                $('#answer').val('');
-            }();
-        } else if (newValue.length < pass.length) {
-            let tooShort = function () {
-                $('#inf').text("ZBYT MAŁO LITER! PODAJ WYRAZ Z " + pass.length + " LITER");
-                $('#answer').val('');
-            }();
-        } else {
-            const wordsList = $('.answers');
-            let green = 0;
-            let white = 0;
-            for (let i = 0; i < pass.length; i++) {
-                if (pass.indexOf(newValue[i]) > -1) {
-                    if (pass[i] == newValue[i]) {
-                        green = green + 1;
+            if (newValue.length > pass.length) {
+                let tooLong = function () {
+                    $('#inf').text("TO MANY LETTERS! ENTER A WORD CONSISTING OF  " + pass.length + " LETTERS");
+                    $('#answer').val('');
+                }();
+            } else if (newValue.length < pass.length) {
+                let tooShort = function () {
+                    $('#inf').text("NOT ENOUGH LETTERS! ENTER A WORD CONSISTING OF  " + pass.length + " LETTERS");
+                    $('#answer').val('');
+                }();
+            } else {
+                const wordsList = $('.answers');
+                let green = 0;
+                let white = 0;
+                for (let i = 0; i < pass.length; i++) {
+                    if (pass.indexOf(newValue[i]) > -1) {
+                        if (pass[i] == newValue[i]) {
+                            green = green + 1;
+                        }
                     }
                 }
-            }
-            let uniqueLetters = [];
-            $.each([...newValue],function (i, el) {
-                if ($.inArray(el, uniqueLetters) === -1) uniqueLetters.push(el);
-                return uniqueLetters;
-            });
-            let number = 0;
+                let uniqueLetters = [];
+                $.each([...newValue
+            ],
 
-            function countInArray(pass, value) {
-                let ok = [...pass].reduce((n, x) => n + (x === value), 0);
-                if (ok > 0) {
-                    number = number + ok;
+                function (i, el) {
+                    if ($.inArray(el, uniqueLetters) === -1) uniqueLetters.push(el);
+                    return uniqueLetters;
                 }
-                white = number - green;
-            }
 
-            for (var i = 0; i < uniqueLetters.length; i++) {
-                countInArray(pass, uniqueLetters[i]);
-            }
+            )
+                ;
+                let number = 0;
 
-            let newWord = document.createElement("li");
-            let array = [];
-            let black = pass.length - (green + white);
-            if (black == pass.length) {
-                newWord.innerHTML = `<div class="word">${newValue.toUpperCase()}</div>
+                function countInArray(pass, value) {
+                    let ok = [...pass].reduce((n, x) => n + (x === value), 0);
+                    if (ok > 0) {
+                        number = number + ok;
+                    }
+                    white = number - green;
+                }
+
+                for (var i = 0; i < uniqueLetters.length; i++) {
+                    countInArray(pass, uniqueLetters[i]);
+                }
+
+                let newWord = document.createElement("li");
+                let array = [];
+                let black = pass.length - (green + white);
+                if (black == pass.length) {
+                    newWord.innerHTML = `<div class="word">${newValue.toUpperCase()}</div>
                                     <div class="dots"><div class="black">-------------------</div></div>`;
 
-            } else {
-                for (var i = 0; i < green; i++) {
-                    let q = `<div class="green"></div>`;
-                    array.push(q);
-                }
-                for (var i = 0; i < white; i++) {
-                    let q = `<div class="white"></div>`;
-                    array.push(q);
-                }
+                } else {
+                    for (var i = 0; i < green; i++) {
+                        let q = `<div class="green"></div>`;
+                        array.push(q);
+                    }
+                    for (var i = 0; i < white; i++) {
+                        let q = `<div class="white"></div>`;
+                        array.push(q);
+                    }
 
-                let arrayNew = array.join("");
-                newWord.innerHTML = `<div class="word">${newValue.toUpperCase()}</div>
+                    let arrayNew = array.join("");
+                    newWord.innerHTML = `<div class="word">${newValue.toUpperCase()}</div>
                                                 <div class="dots">${arrayNew}</div>`;
+                }
+                wordsList.prepend(newWord);
+                let attempt = $('.answers').find('li');
+
+                if (green == pass.length) {
+                    this.nextElementSibling.style.display = "flex";
+                    console.log(this.nextElementSibling.firstElementChild)
+
+                    this.nextElementSibling.firstElementChild.innerHTML = `CONGRATULATIONS!!!<br> YOU GUESSED THE PASSWORD<br> IN ${attempt.length} ATTEMPT!!!`;
+
+                }
+
+                $('#answer').val('');
+
             }
-            wordsList.prepend(newWord);
-            let attempt = $('.answers').find('li');
-
-            if (green == pass.length) {
-                this.nextElementSibling.style.display = "flex";
-                console.log(this.nextElementSibling.firstElementChild)
-
-                this.nextElementSibling.firstElementChild.innerHTML = `GRATULACJE!!!<br> ODGADŁEŚ HASŁO W ${attempt.length} PRÓBIE`;
-
-            }
-
-            $('#answer').val('');
-
-        }
-    });
-}
+        });
+    }
     const timeGame = function () {
         let count = valMin * 60 + valSec;
         let counter = setInterval(timer, 1000);
@@ -146,7 +159,7 @@ const game = function() {
                 document.querySelector('.win').style.display = "flex";
                 document.querySelector('.win').firstElementChild.innerHTML = `CZAS MINĄŁ!!! <br> SPRÓBUJ JESZCZE RAZ`;
 
-            }else if (count > 0) {
+            } else if (count > 0) {
                 game();
             }
 
@@ -166,9 +179,9 @@ const game = function() {
         let pass = $('#password').val().toUpperCase();
 
         if (pass.length !== 0) {
-            if(valMin==0 && valSec == 0){
+            if (valMin == 0 && valSec == 0) {
                 this.parentElement.parentElement.nextElementSibling.children[2].style.display = "none";
-            }else{
+            } else {
                 this.parentElement.parentElement.nextElementSibling.children[2].style.display = "block";
             }
 
@@ -186,9 +199,12 @@ const game = function() {
             else {
                 game();
 
-            };
+            }
+            ;
         }
     });
 
+
 });
+
 
