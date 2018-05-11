@@ -1,4 +1,10 @@
 $(() => {
+    if (window.matchMedia("(max-width: 767px)").matches) {
+    console.log("komórka");
+    document.querySelector(".game").style.display= "block";
+    document.querySelector(".password-box").style.width= "100%";
+    document.querySelector(".answer-box").style.width= "100%";
+}
 
     $('.timer-btn').on('click', function () {
         this.parentElement.nextElementSibling.style.display = 'block';
@@ -172,8 +178,6 @@ const game = function() {
 
             this.parentElement.nextElementSibling.style.display = "block";
 
-            //this.parentElement.parentElement.style.display = "none";
-            //this.parentElement.parentElement.nextElementSibling.style.display = 'flex';
 
             let count = valMin * 60 + valSec;
             if (count > 0) {
