@@ -157,19 +157,23 @@ const game = function() {
     };
 
     $('.start').on('click', function () {
-
-        if(valMin==0 && valSec == 0){
-            this.parentElement.nextElementSibling.children[3].style.display = "none";
-        }else{
-            this.parentElement.nextElementSibling.children[3].style.display = "block";
-        }
         let pass = $('#password').val().toUpperCase();
-        console.log("hasło:" + pass);
-        $('#inf').text("WPISZ WYRAZ Z " + pass.length + " LITER");
-        if (pass.length !== 0) {
 
+        if (pass.length !== 0) {
+            if(valMin==0 && valSec == 0){
+                this.parentElement.parentElement.nextElementSibling.children[2].style.display = "none";
+            }else{
+                this.parentElement.parentElement.nextElementSibling.children[2].style.display = "block";
+            }
+
+            console.log("hasło:" + pass);
+            $('#inf').text("WPISZ WYRAZ Z " + pass.length + " LITER");
             this.parentElement.style.display = "none";
-            this.parentElement.nextElementSibling.style.display = 'flex';
+
+            this.parentElement.nextElementSibling.style.display = "flex";
+
+            //this.parentElement.parentElement.style.display = "none";
+            //this.parentElement.parentElement.nextElementSibling.style.display = 'flex';
 
             let count = valMin * 60 + valSec;
             if (count > 0) {

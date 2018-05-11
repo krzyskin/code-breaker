@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css?family=Cuprum:400,700&amp;subset=latin-ext" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Caveat:400,700&amp;subset=latin-ext" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 <body>
 <div class="container">
@@ -19,41 +20,46 @@
                 <div><div class="white"></div><p> jedna litera występuje, ale jest na niewłaściwym miejscu</p></div>
                 <div><p><span>------------</span>żadna z liter w podanym wyrazie nie wystepuje w haśle do odgadnięcia</p></div>
             </div>
-            <input type="text" id="password">
-            <span>NACIŚNIJ  <button class="timer-btn"><i class="far fa-clock"></i></button>  ABY USTALIĆ LIMIT CZASU!</span>
+            <div class="start-box">
+                <input type="text" id="password">
+                <span>NACIŚNIJ  <button class="timer-btn"><i class="far fa-clock"></i></button>  ABY USTALIĆ LIMIT CZASU!</span>
 
-            <div class="timer-set">
-                <div class="min-sec-set">
-                    <span>MINUTY</span>
-                    <div class="min">
-                    <button class="down-min">-</button>
-                    <span class="min-value">0</span>
-                    <button class="up-min">+</button>
+                <div class="timer-set">
+                    <div class="min-sec-set">
+                        <span>MINUTY</span>
+                        <div class="min">
+                            <button class="down-min">-</button>
+                            <span class="min-value">0</span>
+                            <button class="up-min">+</button>
+                        </div>
                     </div>
-                </div>
-                <div class="min-sec-set">
-                    <span>SEKUNDY</span>
-                    <div class="sec">
-                    <button class="down-sec">-</button>
-                    <span class="sec-value">0</span>
-                    <button class="up-sec">+</button>
+                    <div class="min-sec-set">
+                        <span>SEKUNDY</span>
+                        <div class="sec">
+                            <button class="down-sec">-</button>
+                            <span class="sec-value">0</span>
+                            <button class="up-sec">+</button>
+                        </div>
                     </div>
+
                 </div>
+                <span>LUB GRAJ BEZ LIMITU CZASU</span>
+                <button class="btn start">START!</button>
 
             </div>
-            <span>LUB GRAJ BEZ LIMITU CZASU</span>
-            <button class="btn start">START!</button>
+            <button class=" btn restart" onClick="window.location.reload()">RESTART</button>
 
         </div>
         <div class="answer-box">
             <span id="inf"></span>
             <input type="text" id="answer">
-            <button class=" btn restart" onClick="window.location.reload()">RESTART</button>
 
             <div class="timer">
                 <span class="inner-time"></span>
             </div>
+
             <button type="button" class="btn check">SPRAWDŹ</button>
+
             <div class="win">
                 <span></span>
                 <button class="btn return" onClick="window.location.reload()">NOWA GRA</button>
