@@ -1,21 +1,23 @@
 $(() => {
-    window.addEventListener("resize", function () {
-    if (window.innerWidth < 767) {
-        document.querySelector(".game").style.display = "block";
-        document.querySelector(".password-box").style.width = "100%";
-        document.querySelector(".answer-box").style.width = "100%";
-        document.querySelector(".win").style.top = "400px";
+    const mobile = window.matchMedia("screen and (max-width: 767px)");
+    mobile.addListener( function(mobile) {
+    if (mobile.matches) {
 
-    }else{
-        document.querySelector(".game").style.display = "flex";
-        document.querySelector(".password-box").style.width = "50%";
-        document.querySelector(".answer-box").style.width = "50%";
-        document.querySelector(".win").style.top = "50px";
-    }
-});
+           document.querySelector(".game").style.display = "block";
+           document.querySelector(".password-box").style.width = "100%";
+           document.querySelector(".answer-box").style.width = "100%";
+           document.querySelector(".win").style.top = "400px";
+
+       }else{
+           document.querySelector(".game").style.display = "flex";
+           document.querySelector(".password-box").style.width = "50%";
+           document.querySelector(".answer-box").style.width = "50%";
+           document.querySelector(".win").style.top = "50px";
+       }
+    });
     $('.timer-btn').on('click', function () {
         this.parentElement.nextElementSibling.style.display = 'block';
-    })
+    });
     let valMin = 0;
     $('.up-min').on('click', function () {
         valMin = valMin + 1;
@@ -57,13 +59,14 @@ $(() => {
             $('.sec-value').text(valSec);
         }
     });
-//////////////////////// end timer adjust ////////////////////////////////
+
     const game = function () {
         $('.check').on('click', function () {
+
             let pass = $('#password').val().toUpperCase();
             $('#inf').text("WPISZ WYRAZ Z " + pass.length + " LITER");
             let newValue = $('#answer').val().toUpperCase();
-
+            console.log(newValue);
             if (newValue.length > pass.length) {
                 let tooLong = function () {
                     $('#inf').text("TO MANY LETTERS! ENTER A WORD CONSISTING OF  " + pass.length + " LETTERS");
@@ -86,16 +89,12 @@ $(() => {
                     }
                 }
                 let uniqueLetters = [];
-                $.each([...newValue
-            ],
-
-                function (i, el) {
-                    if ($.inArray(el, uniqueLetters) === -1) uniqueLetters.push(el);
-                    return uniqueLetters;
-                }
-
-            )
-                ;
+                $.each([...newValue],function (i, el) {
+                    if ($.inArray(el, uniqueLetters) === -1){
+                        uniqueLetters.push(el);
+                        return uniqueLetters;
+                    }
+                });
                 let number = 0;
 
                 function countInArray(pass, value) {
@@ -103,13 +102,16 @@ $(() => {
                     if (ok > 0) {
                         number = number + ok;
                     }
-                    white = number - green;
+
                 }
 
                 for (var i = 0; i < uniqueLetters.length; i++) {
                     countInArray(pass, uniqueLetters[i]);
                 }
-
+                white = number - green;
+                console.log(white);
+                console.log(green);
+                console.log(number);
                 let newWord = document.createElement("li");
                 let array = [];
                 let black = pass.length - (green + white);
@@ -146,7 +148,7 @@ $(() => {
 
             }
         });
-    }
+    };
     const timeGame = function () {
         let count = valMin * 60 + valSec;
         let counter = setInterval(timer, 1000);

@@ -9,8 +9,7 @@
 
 }
 .game{
-    background: rgba(67, 255, 206, 0.54);
-
+    background-image: linear-gradient(to right bottom, #29eb3a, #a6d200, #d8b61f, #ec9e4d, #e78f72);
     min-height: 700px;
     text-align: center;
     display:flex;
@@ -49,13 +48,18 @@
 }
 #password, #answer{
     height: 58px;
-    border: 1px solid #4d4a70;
-    font-size:40px;
+    border-top:none;
+    border-right:none;
+    border-left:none;
+    border-bottom: 1px solid #4d4a70;
+    font-size:35px;
     width:300px;
+    background: transparent;
+    outline:none;
 }
 
 span{
-    margin-top:20px;
+
     font-family: 'Cuprum', sans-serif;
 
 }
