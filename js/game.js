@@ -81,37 +81,34 @@ $(() => {
                 const wordsList = $('.answers');
                 let green = 0;
                 let white = 0;
-                for (let i = 0; i < pass.length; i++) {
-                    if (pass.indexOf(newValue[i]) > -1) {
-                        if (pass[i] == newValue[i]) {
-                            green = green + 1;
+
+                function countInArray(array, value) {
+                    let valNum = array.reduce((n, x) => n + (x === value), 0);
+                    return valNum;
+                }
+                let  arr= [];
+                for( let i=0;i<pass.length;i++){
+                    for( let j=0;j<newValue.length;j++) {
+                        if(pass[i] == newValue[j]){
+                            arr.push(pass[i]);
+                            if (i==j) {
+                                green = green + 1;
+
+                            }
                         }
                     }
                 }
-                let uniqueLetters = [];
-                $.each([...newValue],function (i, el) {
-                    if ($.inArray(el, uniqueLetters) === -1){
-                        uniqueLetters.push(el);
-                        return uniqueLetters;
-                    }
-                });
-                let number = 0;
+                let uniq = [...new Set(arr)];
+                console.log(uniq);
+                for(let i=0;i<uniq.length;i++){
+                    let passUniq = countInArray([...pass],uniq[i]);
+                    let newValueUniq = countInArray([...newValue],uniq[i]);
+                    let uniqNumber = Math.min(passUniq,newValueUniq);
 
-                function countInArray(pass, value) {
-                    let ok = [...pass].reduce((n, x) => n + (x === value), 0);
-                    if (ok > 0) {
-                        number = number + ok;
-                    }
-
+                    white = white + uniqNumber;
                 }
+                white=white-green;
 
-                for (var i = 0; i < uniqueLetters.length; i++) {
-                    countInArray(pass, uniqueLetters[i]);
-                }
-                white = number - green;
-                console.log(white);
-                console.log(green);
-                console.log(number);
                 let newWord = document.createElement("li");
                 let array = [];
                 let black = pass.length - (green + white);
