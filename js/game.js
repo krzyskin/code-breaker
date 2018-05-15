@@ -1,20 +1,5 @@
 $(() => {
-    const mobile = window.matchMedia("screen and (max-width: 767px)");
-    mobile.addListener( function(mobile) {
-    if (mobile.matches) {
 
-           document.querySelector(".game").style.display = "block";
-           document.querySelector(".password-box").style.width = "100%";
-           document.querySelector(".answer-box").style.width = "100%";
-           document.querySelector(".win").style.top = "400px";
-
-       }else{
-           document.querySelector(".game").style.display = "flex";
-           document.querySelector(".password-box").style.width = "50%";
-           document.querySelector(".answer-box").style.width = "50%";
-           document.querySelector(".win").style.top = "50px";
-       }
-    });
     $('.timer-btn').on('click', function () {
         this.parentElement.nextElementSibling.style.display = 'block';
     });
@@ -175,6 +160,7 @@ $(() => {
     };
 
     $('.start').on('click', function () {
+
         let pass = $('#password').val().toUpperCase();
 
         if (pass.length !== 0) {
@@ -187,7 +173,7 @@ $(() => {
 
             $('#inf').text("WPISZ WYRAZ Z " + pass.length + " LITER");
             this.parentElement.style.display = "none";
-
+            this.parentElement.parentElement.nextElementSibling.style.display = "flex";
             this.parentElement.nextElementSibling.style.display = "block";
 
 

@@ -7,13 +7,14 @@
     min-height: 720px;
     width:100vw;
     background-image:url(../images/cheap_diagonal_fabric.png) ;/* from https://www.toptal.com/designers/subtlepatterns/tag/light/page/5/ */
-
+    display:flex;
+    justify-content: center;
 }
 .game{
     min-height: 700px;
+    width:700px;
     text-align: center;
-    display:flex;
-    justify-content: center;
+    background-color: rgba(190, 190, 190, 0.35);
 
 
 }
@@ -22,7 +23,7 @@
     display:flex;
     flex-direction: column;
     align-items: center;
-    width:50%;
+    width:100%;
 }
 h1{
     margin:0;
@@ -134,11 +135,11 @@ span{
 }
 .answer-box{
     padding:30px 0 10px 0;
-    display:flex;
+    display:none;
     align-items: center;
     flex-direction: column;
     min-height: 650px;
-    width:50%;
+    width:100%;
 }
 .answers{
     list-style-type: none;
@@ -264,7 +265,7 @@ span{
     background: rgb(86, 177, 184);
     display:none;
     position: absolute;
-    top:50px;
+    top:400px;
     border-radius: 5px;
     justify-content: center;
     flex-direction: column;
