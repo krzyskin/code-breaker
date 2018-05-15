@@ -66,7 +66,7 @@ $(() => {
             let pass = $('#password').val().toUpperCase();
             $('#inf').text("WPISZ WYRAZ Z " + pass.length + " LITER");
             let newValue = $('#answer').val().toUpperCase();
-            console.log(newValue);
+
             if (newValue.length > pass.length) {
                 let tooLong = function () {
                     $('#inf').text("TO MANY LETTERS! ENTER A WORD CONSISTING OF  " + pass.length + " LETTERS");
@@ -99,7 +99,7 @@ $(() => {
                     }
                 }
                 let uniq = [...new Set(arr)];
-                console.log(uniq);
+
                 for(let i=0;i<uniq.length;i++){
                     let passUniq = countInArray([...pass],uniq[i]);
                     let newValueUniq = countInArray([...newValue],uniq[i]);
@@ -184,7 +184,7 @@ $(() => {
                 this.parentElement.parentElement.nextElementSibling.children[2].style.display = "block";
             }
 
-            console.log("hasło:" + pass);
+
             $('#inf').text("WPISZ WYRAZ Z " + pass.length + " LITER");
             this.parentElement.style.display = "none";
 

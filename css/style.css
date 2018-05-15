@@ -51,13 +51,23 @@
     border-top:none;
     border-right:none;
     border-left:none;
-    border-bottom: 1px solid #4d4a70;
+    border-bottom: 1px solid #704161;
     font-size:35px;
     width:300px;
     background: transparent;
     outline:none;
 }
-
+input{
+    font-family: 'Caveat', cursive;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+input::placeholder{
+    font-family: 'Caveat', cursive;
+    color: #704161;
+    font-size:26px;
+    text-transform: none;
+}
 span{
 
     font-family: 'Cuprum', sans-serif;
