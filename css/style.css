@@ -6,10 +6,10 @@
     text-align:center;
     min-height: 720px;
     width:100vw;
+    background-image:url("../images/cheap_diagonal_fabric.png") ;/* from https://www.toptal.com/designers/subtlepatterns/tag/light/page/5/ */
 
 }
 .game{
-     background-image:url("../images/cheap_diagonal_fabric.png") ;/* from https://www.toptal.com/designers/subtlepatterns/tag/light/page/5/ */
     min-height: 700px;
     text-align: center;
     display:flex;
