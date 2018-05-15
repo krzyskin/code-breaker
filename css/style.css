@@ -9,7 +9,7 @@
 
 }
 .game{
-    background-image: linear-gradient(to right bottom, #29eb3a, #a6d200, #d8b61f, #ec9e4d, #e78f72);
+     background-image:url("../images/cheap_diagonal_fabric.png") ;/* from https://www.toptal.com/designers/subtlepatterns/tag/light/page/5/ */
     min-height: 700px;
     text-align: center;
     display:flex;
@@ -24,8 +24,15 @@
     align-items: center;
     width:50%;
 }
+h1{
+    margin:0;
+    font-size: 40px;
+    font-family: 'Caveat', cursive;
+    font-weight: 700;
+
+}
 .description{
-    padding:30px;
+    padding:20px 30px 5px 30px;
     display:inline-block;
     font-family: 'Cuprum', sans-serif;
 }
