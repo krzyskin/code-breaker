@@ -49,7 +49,7 @@ $(() => {
         $('.check').on('click', function () {
 
             let pass = $('#password').val().toUpperCase();
-            $('#inf').text("WPISZ WYRAZ Z " + pass.length + " LITER");
+            $('#inf').text("ENTER A WORD CONSISTING OF " + pass.length + " LETTERS");
             let newValue = $('#answer').val().toUpperCase();
 
             if (newValue.length > pass.length) {
@@ -141,7 +141,7 @@ $(() => {
             if (count === 0) {
                 clearInterval(counter);
                 document.querySelector('.win').style.display = "flex";
-                document.querySelector('.win').firstElementChild.innerHTML = `CZAS MINĄŁ!!! <br> SPRÓBUJ JESZCZE RAZ`;
+                document.querySelector('.win').firstElementChild.innerHTML = `TIME IS UP!!! <br> TRY ONCE AGAIN!`;
 
             } else if (count > 0) {
                 game();
