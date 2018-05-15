@@ -94,12 +94,15 @@ span{
     border:10px solid white;
     transition: 0.2s;
     margin-top:10px;
+
 }
 .start:hover{
     background:darkred;
     border:2px solid #8b0740;
     font-size:35px;
+    outline:none;
 }
+
 .restart{
     display:none;
     height: 72px;
@@ -115,6 +118,7 @@ span{
     background:darkred;
     transition:0.2s;
     font-weight: 700;
+    outline:none;
 }
 .btn.check{
     height:72px;
@@ -204,6 +208,7 @@ span{
     background: green;
     transition:0.2s;
     color: white;
+    outline:none;
 }
 .timer-set{
     display:none;
@@ -245,7 +250,9 @@ span{
     display:inline-block;
     float:left;
     font-size: 32px;
+
 }
+
 .up-min, .up-sec{
     background: rgba(0, 128, 0, 0.82);
 }
