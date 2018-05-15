@@ -102,6 +102,9 @@ span{
     font-size:35px;
     outline:none;
 }
+.start:focus{
+    outline:none;
+}
 
 .restart{
     display:none;
@@ -133,12 +136,16 @@ span{
 
 }
 
+
 .btn{
     background: green;
     border: 3px solid #fff;
     border-radius: 100%;
     color:white;
     font-family: 'Cuprum', sans-serif;
+}
+.btn:focus{
+    outline: none;
 }
 .answer-box{
     padding:30px 0 10px 0;
@@ -208,12 +215,16 @@ span{
     background: green;
     transition:0.2s;
     color: white;
+
+}
+.timer-btn:focus{
     outline:none;
 }
 .timer-set{
     display:none;
     margin-top:20px;
 }
+
 .min-sec-set{
     display:inline-block;
 }
@@ -251,6 +262,9 @@ span{
     float:left;
     font-size: 32px;
 
+}
+.up-min:focus, .up-sec:focus, .down-min:focus, .down-sec:focus, .min-value:focus, .sec-value:focus{
+    outline:none;
 }
 
 .up-min, .up-sec{
