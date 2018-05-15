@@ -171,7 +171,7 @@ $(() => {
             }
 
 
-            $('#inf').text("WPISZ WYRAZ Z " + pass.length + " LITER");
+            $('#inf').text("ENTER A WORD CONSISTING OF " + pass.length + " LETTERS");
             this.parentElement.style.display = "none";
             this.parentElement.parentElement.nextElementSibling.style.display = "flex";
             this.parentElement.nextElementSibling.style.display = "block";
