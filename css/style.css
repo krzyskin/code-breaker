@@ -52,6 +52,27 @@ h1{
 .description span{
     margin-right:25px;
 }
+.player{
+    width:60px;
+    height: 60px;
+    margin:10px;
+    border-radius: 100%;
+    border: 3px solid rgba(0, 0, 0, 0.75);
+    background:white;
+    font-family: 'Cuprum', sans-serif;
+
+}
+.player:hover{
+    background: green;
+    border: 3px solid #fff;
+    border-radius: 100%;
+    color:white;
+    transition:0.2s;
+
+}
+.player:focus{
+    outline:none;
+}
 .start-box{
     display:flex;
     flex-direction: column;
@@ -207,7 +228,7 @@ span{
     width:32px;
     height:32px;
     border-radius: 100%;
-    border: 2px solid black;
+    border: 2px solid rgba(0, 0, 0, 0.85);
     background:white;
 }
 .timer-btn:hover, .return:hover, .check:hover{
