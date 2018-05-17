@@ -16,13 +16,13 @@
     <div class="game">
         <div class="password-box">
             <h1>CODE-BREAKER</h1>
-            <div class="description">The goal of the  game is to guess the password entered by the first player. The password may have any number of letters. Second player receives information whether the word  entered matches  the password. Information are displayed in the way shown below.
+            <div class="description">The goal of the  game is to guess the password. You can choose between playing alone guessing randomized word or try to guess the password entered by the other player. Second player receives information whether the word  entered matches  the password. Information are displayed in the way shown below. Randomized words contain 5 letters.
                 <div><div class="green"></div><p> one letter appears in the password and is in the right place</p></div>
                 <div><div class="white"></div><p> one letter appears in the password but is in the wrong place</p></div>
                 <div><p><span>------------</span> none of the letters appears in the password to guess</p></div>
                 <div>
-                    <button class="player btn">1 player</button>
-                    <button class="player btn">2 players</button>
+                    <button class="player one">Random<br>word</button>
+                    <button class="player two">Enter<br>word</button>
                 </div>
             </div>
             <div class="start-box">
@@ -52,7 +52,7 @@
                 <button class="btn start">START!</button>
 
             </div>
-            <button class=" btn restart" onClick="window.location.reload()">RESTART</button>
+            <button class="restart" onClick="window.location.reload()">RESTART</button>
 
         </div>
         <div class="answer-box">

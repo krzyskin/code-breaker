@@ -55,28 +55,32 @@ h1{
 .player{
     width:60px;
     height: 60px;
-    margin:10px;
+    margin:25px;
     border-radius: 100%;
-    border: 3px solid rgba(0, 0, 0, 0.75);
-    background:white;
+    background: green;
+    border: 3px solid #fff;
     font-family: 'Cuprum', sans-serif;
+    color:white;
 
 }
 .player:hover{
-    background: green;
-    border: 3px solid #fff;
-    border-radius: 100%;
-    color:white;
     transition:0.2s;
+    height:70px;
+    width: 70px;
+    color:white;
+    font-size:15px;
+    background:darkred;
+    font-weight:700;
+
 
 }
 .player:focus{
     outline:none;
 }
 .start-box{
-    display:flex;
     flex-direction: column;
     align-items:center;
+    display:none;
 }
 #password, #answer{
     height: 58px;
@@ -105,6 +109,7 @@ span{
     font-family: 'Cuprum', sans-serif;
 
 }
+
 .start-box>span{
     margin:5px;
 }
@@ -114,7 +119,7 @@ span{
     font-size:25px;
     border:10px solid white;
     transition: 0.2s;
-    margin-top:10px;
+    margin:10px 0 10px 0;
 
 }
 .start:hover{
@@ -135,27 +140,30 @@ span{
     font-family: 'Cuprum', sans-serif;
     text-align: center;
     font-size: 17px;
-}
-.restart:hover{
-    
-    border:3px solid #8b0740;
-    background:darkred;
-    transition:0.2s;
-    font-weight: 700;
-    outline:none;
-}
-.btn.check{
-    height:72px;
-    width: 72px;
-    margin:10px 0 10px 0;
     color:white;
-    font-size:15px;
     border:3px solid white;
     background:darkred;
     transition:0.4s;
     font-weight:700;
-
 }
+.restart:hover{
+    background: green;
+    border: 3px solid #fff;
+    transition:0.2s;
+    font-weight: 700;
+    outline:none;
+}
+.check{
+    height:72px;
+    width: 72px;
+    margin:10px 0 10px 0;
+    font-size:15px;
+    transition:0.4s;
+}
+ .check:hover{
+     background:darkred;
+     font-weight:700;
+ }
 
 
 .btn{
@@ -231,7 +239,7 @@ span{
     border: 2px solid rgba(0, 0, 0, 0.85);
     background:white;
 }
-.timer-btn:hover, .return:hover, .check:hover{
+.timer-btn:hover, .return:hover{
     border: 3px solid white;
     background: green;
     transition:0.2s;
