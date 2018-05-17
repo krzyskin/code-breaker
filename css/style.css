@@ -52,6 +52,9 @@ h1{
 .description span{
     margin-right:25px;
 }
+.players{
+    display:none;
+}
 .player{
     width:60px;
     height: 60px;
@@ -80,7 +83,7 @@ h1{
 .start-box{
     flex-direction: column;
     align-items:center;
-    display:none;
+    display:flex;
 }
 #password, #answer{
     height: 58px;

@@ -1,14 +1,13 @@
 $(() => {
-
+/*
     $('.two').on('click', function () {
         this.parentElement.style.display = "none";
         this.parentElement.parentElement.nextElementSibling.style.display = "flex";
     this.parentElement.parentElement.nextElementSibling.nextElementSibling.style.display = "flex";
-    //this.parentElement.parentElement.parentElement.nextElementSibling.style.display = "flex";
 
 })
 
-
+*/
     $('.timer-btn').on('click', function () {
         this.parentElement.nextElementSibling.style.display = 'block';
     });
@@ -168,6 +167,7 @@ $(() => {
             $(".inner-time").text(admin + " : " + adsec);
         }
     };
+    /*
 $('.one').on('click', function () {
     this.parentElement.style.display = "none";
     this.parentElement.parentElement.nextElementSibling.nextElementSibling.style.display = "flex";
@@ -186,10 +186,10 @@ $('.one').on('click', function () {
     }).fail(function() {
         console.log('fail');
     });
-    //let pass = $('#password').val().toUpperCase();
     $('#inf').text("ENTER A WORD CONSISTING OF " + 5 + " LETTERS");
     game();
 })
+*/
     $('.start').on('click', function () {
 
         let pass = $('#password').val().toUpperCase();
