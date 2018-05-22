@@ -1,5 +1,5 @@
 $(() => {
-
+/*
     $('.two').on('click', function () {
         this.parentElement.style.display = "none";
         this.parentElement.parentElement.nextElementSibling.style.display = "flex";
@@ -7,7 +7,7 @@ $(() => {
 
 })
 
-
+*/
     $('.timer-btn').on('click', function () {
         this.parentElement.nextElementSibling.style.display = 'block';
     });
@@ -167,12 +167,12 @@ $(() => {
             $(".inner-time").text(admin + " : " + adsec);
         }
     };
-   
+    /*
 $('.one').on('click', function () {
     this.parentElement.style.display = "none";
     this.parentElement.parentElement.nextElementSibling.nextElementSibling.style.display = "flex";
     this.parentElement.parentElement.parentElement.nextElementSibling.style.display = "flex";
-    
+
     const urlApi = 'http://api.wordnik.com/v4/words.json/randomWords?hasDictionaryDef=false&includePartOfSpeech=noun&excludePartOfSpeech=noun-plural&excludePartOfSpeech=proper-noun&excludePartOfSpeech=proper-noun-plural&excludePartOfSpeech=proper-noun-possesive&minCorpusCount=10000&maxCorpusCount=-1&minDictionaryCount=3&maxDictionaryCount=-1&minLength=5&maxLength=5&limit=1&api_key=3b72c2f07843930399a0c05382c0a3e2bccfd3c7e457ac1f3';
 
     $.ajax({
@@ -189,7 +189,7 @@ $('.one').on('click', function () {
     $('#inf').text("ENTER A WORD CONSISTING OF " + 5 + " LETTERS");
     game();
 })
-
+*/
     $('.start').on('click', function () {
 
         let pass = $('#password').val().toUpperCase();
