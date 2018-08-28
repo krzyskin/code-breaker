@@ -173,7 +173,7 @@ $('.one').on('click', function () {
 
     }).fail(function() {
         console.log('fail');
-        let words = ["horse","nurse","sheep","blade","spoon","crown","train","plate","glass","trail","waste","break","sword","grade","smoke","apple","north","lemon","towel"];
+        let words = ["horse","nurse","sheep","blade","spoon","crown","train","plate","glass","trail","waste","break","sword","grade","smoke","apple","north","lemon","towel","queen","radar", "razor","rebel", "power","radio", "price","ankle","antic", "armor","baker","bride","canal","chair","cliff","clown","cloud","clock","donut","earth","enemy","fight","fiber","grape","group","haste","humor","house","image","igloo","joker","kitty","knife","limit","lorry","liver","manor","model","music","movie","mania","noise","nymph","oasis","ocean","opera","proof","peach","query","scale","sense","thing","today","uncle","virus","viper","wagon","woman","wheel","youth","zebra"];
         let randomNumber = Math.round(Math.random()*(words.length-1));
         $('#password').val(words[randomNumber]);
     });
